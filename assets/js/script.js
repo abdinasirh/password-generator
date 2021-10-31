@@ -4,11 +4,12 @@
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
-var LowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
+var LowerCaseLetters = ["a", "b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 var upperCaseLetters = LowerCaseLetters.toUpperCase;
 var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-var specialCharacter = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/; 
+var specialCharacter = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
 
+var passwordChoice;
 var passwordLength = "";
 var confirmSpecialChar;
 var confirmNumber;
@@ -37,6 +38,29 @@ while (!confirmUpperCase && !confirmLowerCase && !confirmNumber && !confirmSpeci
   var confirmLowerCase = confirm("Click OK if you would like to include lowercase");
   var confirmNumber = confirm("Click OK if you would like to include numbers");
   var confirmSpecialChar = confirm("Click OK if you would like to include special characters");
+  }
+
+  var passwordChoice = [];
+
+  if(confirmUpperCase){
+    passwordChoice = upperCaseLetters;
+  }
+
+  if(confirmLowerCase){
+    passwordChoice = LowerCaseLetters;
+  }
+
+  if(confirmNumber){
+    passwordChoice = numbers;
+  }
+
+  if(confirmSpecialChar){
+    passwordChoice = specialCharacter;
+  }
+
+  for (var i = 0; i < passwordLength; i++) {
+    randomPassword = randomPassword + passwordChoice[Math.floor(Math.random() * passwordChoice.length)];
+    console.log(randomPassword)
   }
   
 };
