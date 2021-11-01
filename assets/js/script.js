@@ -30,7 +30,7 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 
-// prompt for How many password criteria 
+// prompt for password criteria 
 function generatePassword(){
   var passwordCritaria = alert("Your password should have uppercase, lowercase, numbers, spacecial characters and must be between 8-128 characters.");
 
