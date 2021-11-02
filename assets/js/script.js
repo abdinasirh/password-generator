@@ -13,7 +13,15 @@ var confirmUpperCase;
 var confirmLowerCase;
 
 var LowerCaseLetters = ["a", "b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-var upperCaseLetters = LowerCaseLetters.toUpperCase;
+
+var upperCaseLetters = LowerCaseLetters.map(letter => letter.toUpperCase())
+// console.log("uppercaseletters: ", upperCaseLetters);
+
+// for (var i = 0; i < LowerCaseLetters.length; i++) {
+//   var capLetters = LowerCaseLetters[i].toUpperCase();
+//   upperCaseLetters.push(capLetters);
+// }
+
 var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var specialCharacter = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/","=", " > ", " ? ", "@", "[", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
 
@@ -47,6 +55,15 @@ while(passwordLength <=7 || passwordLength >= 128){
   var confirmNumber = confirm("Click OK if you would like to include numbers");
   var confirmSpecialChar = confirm("Click OK if you would like to include special characters");
 
+  var userChoices = {
+    passwordLength: passwordLength,
+    confirmUpperCase: confirmUpperCase,
+    confirmLowerCase: confirmLowerCase,
+    confirmNumber: confirmNumber,
+    confirmSpecialChar: confirmSpecialChar
+
+  }
+
 // loop if the choices are not true
 while (!confirmUpperCase && !confirmLowerCase && !confirmNumber && !confirmSpecialChar) {
   alert("You must select at least one character type!");
@@ -55,10 +72,19 @@ while (!confirmUpperCase && !confirmLowerCase && !confirmNumber && !confirmSpeci
   var confirmUpperCase = confirm("Click OK if you would like to include uppercase");
   var confirmLowerCase = confirm("Click OK if you would like to include lowercase");
   var confirmNumber = confirm("Click OK if you would like to include numbers");
-  var confirmSpecialChar = confirm("Click OK if you would like to include special characters");
+  var confirmSpecialChar = confirm("Click OK if you would like to include special characters");user
   }
 
-  
+  var result = [];
+  var userOptions = [];
+
+  var allChoices = [];
+
+  if(userChoices.confirmUpperCase) {
+    userOptions = userOptions.concat(upperCaseLetters);
+    allChoices.push(randomize(upperCaseLetters))
+  }
+
 
 // atleas one character should be selected
   if (!confirmUpperCase && !confirmLowerCase && !confirmNumber && !confirmSpecialChar) {
@@ -78,3 +104,6 @@ while (!confirmUpperCase && !confirmLowerCase && !confirmNumber && !confirmSpeci
 };
 
 
+function randomize(array) {
+//math.floor(math.random)
+}
