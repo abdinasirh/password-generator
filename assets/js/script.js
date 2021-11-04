@@ -5,7 +5,6 @@
 var generateBtn = document.querySelector("#generate");
 
 // variable declarations 
-var passwordChoice;
 var passwordLength = "";
 var confirmSpecialChar;
 var confirmNumber;
@@ -24,18 +23,6 @@ var upperCaseLetters = LowerCaseLetters.map(letter => letter.toUpperCase())
 
 var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var specialCharacter = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/","=", " > ", " ? ", "@", "[", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
 
 
 // prompt for password criteria 
@@ -75,35 +62,62 @@ while (!confirmUpperCase && !confirmLowerCase && !confirmNumber && !confirmSpeci
   var confirmSpecialChar = confirm("Click OK if you would like to include special characters");user
   }
 
-  var result = [];
+
+  // atleas one character should be selected
+  if (!confirmUpperCase && !confirmLowerCase && !confirmNumber && !confirmSpecialChar) {
+    passwordChoice = alert("At least one character type should be selected");
+  };
+
+  // var result = [];
   var userOptions = [];
 
-  var allChoices = [];
+  // var allChoices = [];
 
   if(userChoices.confirmUpperCase) {
     userOptions = userOptions.concat(upperCaseLetters);
-    allChoices.push(randomize(upperCaseLetters))
+    // allChoices.push(randomize(upperCaseLetters))
+    // console.log(userOptions);
+  }
+
+  if(userChoices.confirmLowerCase) {
+    userOptions = userOptions.concat(LowerCaseLetters);
+    // console.log(userOptions);
+    // allChoices.push(randomize(LowerCaseLetters))
+  }
+
+  if(userChoices.confirmNumber) {
+    userOptions = userOptions.concat(numbers);
+    // console.log(userOptions);
+    // allChoices.push(randomize(numbers))
+  }
+
+  if(userChoices.confirmSpecialChar) {
+    userOptions = userOptions.concat(specialCharacter);
+    // console.log(userOptions);
+  //   allChoices.push(randomize(specialCharacter))
   }
 
 
-// atleas one character should be selected
-  if (!confirmUpperCase && !confirmLowerCase && !confirmNumber && !confirmSpecialChar) {
-    passwordChoice = alert("At least one character type should be selected");
-  } else if (confirmUpperCase && confirmLowerCase && confirmNumber && confirmSpecialChar) {
-    passwordChoice = LowerCaseLetters.concat(upperCaseLetters, numbers, specialCharacter);
-    console.log(passwordChoice);
-  }
-
-  var randomPassword = ""
-// loop for random password
+var randomize = [];
   for (var i = 0; i < passwordLength; i++) {
-  randomPassword = randomPassword + passwordChoice[Math.floor(Math.random() * passwordChoice.length)];
+    randomize = randomize + userOptions[Math.floor(Math.random() * userOptions.length)];
+    console.log(randomize)
 
-   }
+}
+
   
 };
 
 
-function randomize(array) {
-//math.floor(math.random)
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
+
 }
+
