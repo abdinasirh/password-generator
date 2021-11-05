@@ -41,10 +41,10 @@ function writePassword() {
 
 // prompt for password criteria 
 function generatePassword(){
-  var passwordCritaria = alert("Your password should have uppercase, lowercase, numbers, spacecial characters and must be between 8-128 characters.");
+  // var passwordCritaria = alert("Your password should have uppercase, lowercase, numbers, spacecial characters and must be between 8-128 characters.");
 
   // prompt for How many characters would like your password to contain
-  var passwordLength = prompt("How many characters would you like your password to be?");
+  var passwordLength = prompt("How many characters would you like your password to be? Password must be between 8-128 characters");
 while(passwordLength <=7 || passwordLength >= 128){
   alert("password length must be between 8-128 characters. please try again");
   var passwordLength = prompt("How many characters would you like your password to be?");
