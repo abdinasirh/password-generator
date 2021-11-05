@@ -25,6 +25,20 @@ var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var specialCharacter = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/","=", " > ", " ? ", "@", "[", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
 
 
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
+
+}
+
+
 // prompt for password criteria 
 function generatePassword(){
   var passwordCritaria = alert("Your password should have uppercase, lowercase, numbers, spacecial characters and must be between 8-128 characters.");
@@ -101,23 +115,12 @@ while (!confirmUpperCase && !confirmLowerCase && !confirmNumber && !confirmSpeci
 var randomize = [];
   for (var i = 0; i < passwordLength; i++) {
     randomize = randomize + userOptions[Math.floor(Math.random() * userOptions.length)];
-    console.log(randomize)
-
+    // console.log(randomize)
 }
+return randomize;
 
   
 };
 
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
 
