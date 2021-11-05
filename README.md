@@ -1,5 +1,15 @@
 # password-generator
 
+
+
+Challenge 3: Password generator 
+
+Description:
+application generates random password based on user choices
+
+
+Functionality: 
+
 GIVEN I need a new, secure password
 WHEN I click the button to generate a password
 THEN I am presented with a series of prompts for password criteria
@@ -18,8 +28,11 @@ THEN the password is either displayed in an alert or written to the page
 
 
 
-Repo:
+Repo link:
 https://github.com/abdinasirh/password-generator
 
-live page:
+website link:
 https://abdinasirh.github.io/password-generator/
+
+
+![Getting Started](./images/pic1.jpeg)
