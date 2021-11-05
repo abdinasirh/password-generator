@@ -32,4 +32,4 @@ https://github.com/abdinasirh/password-generator
 website link:
 https://abdinasirh.github.io/password-generator/
 
-![Getting Started](./assets/images/readme-screen-shot.jpg)
+![Getting Started](./assets/images/readme-screen-shot.jpeg)
