@@ -1,8 +1,6 @@
-# password-generator
+# Challenge 3: Password generator 
 
 
-
-Challenge 3: Password generator 
 
 Description:
 application generates random password based on user choices
@@ -34,5 +32,4 @@ https://github.com/abdinasirh/password-generator
 website link:
 https://abdinasirh.github.io/password-generator/
 
-
-![Getting Started](./images/pic1.jpeg)
+![Getting Started](./assets/images/readme-screen-shot.jpg)
